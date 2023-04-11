@@ -13,8 +13,8 @@ The deployment of the YouTube clone application can be done on a cloud-based pla
 To get started with the project, you can clone the repository and install the necessary dependencies by running the following commands: 
 
 ```sh
-git clone `https://github.com/CodeKaito/React-YT`
-cd React-ZT
+git clone `https://github.com/CodeKaito/ReactJS-Youtube`
+cd ReactJS-Youtube
 npm install 
 ```
 

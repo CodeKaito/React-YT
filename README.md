@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# YouTube Clone Application 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a modern YouTube clone application built with React JS and Material UI 5, and powered by Rapid API. The application allows users to search for and watch YouTube videos just like the actual YouTube website. 
 
-## Available Scripts
+## Project Setup 
 
-In the project directory, you can run:
+To get started with the project, you can clone the repository and install the necessary dependencies by running the following commands: 
 
-### `npm start`
+```sh
+git clone `https://github.com/CodeKaito/React-YT`
+cd React-ZT
+npm install 
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Running the Application 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run the application locally, you can run the following command:
 
-### `npm test`
+```sh
+npm start 
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This will start the application on your local machine, and you can access it by opening your browser and navigating to `http://localhost:3000`. 
 
-### `npm run build`
+## Rapid API 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This application uses the YouTube API provided by Rapid API to search for videos and retrieve relevant video data. You will need to sign up for a Rapid API account and subscribe to the YouTube API before using this application. Once you have subscribed to the API, you will receive an API key that you can use to authorize your requests. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You should store your API key as an environment variable, and use it to make requests to the Rapid API YouTube endpoint. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+const API_KEY = process.env.REACT_APP_API_KEY;
 
-### `npm run eject`
+const requestOptions = {
+  method: 'GET',
+  headers: { 'Content-Type': 'application/json', 'x-rapidapi-key': API_KEY },
+};
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+const BASE_URL = 'https://youtube-search1.p.rapidapi.com/';
+const SEARCH_URL = `${BASE_URL}/search`;
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export const searchVideos = async (query) => {
+  const response = await fetch(`${SEARCH_URL}?q=${query}`, requestOptions);
+  const data = await response.json();
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  return data.items;
+};
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This code shows an example of how to make a request to the Rapid API YouTube endpoint to search for videos. 
 
-## Learn More
+## Material UI 5 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This application uses Material UI 5 as the UI component library for styling the application. Material UI provides a range of pre-built React components that can be easily customized and styled to fit your application's design needs. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing 
 
-### Code Splitting
+If you would like to contribute to the project, you can fork the repository and submit a pull request with your changes. Make sure to include a detailed description of your changes and any relevant information. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License 
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
